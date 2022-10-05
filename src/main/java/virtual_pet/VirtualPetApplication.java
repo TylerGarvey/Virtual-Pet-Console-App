@@ -16,11 +16,7 @@ public class VirtualPetApplication {
 
         System.out.println("Welcome to the Animal Shelter!");
 
-
-
-
                 boolean gameRunning = true;
-
 
                 while (gameRunning) {
                     vps.tick();
@@ -50,6 +46,7 @@ public class VirtualPetApplication {
                             System.out.println("What is the name of the pet you would like to admit into the shelter?");
                             String userinput = input.next();
                             vps.takeInPet(new VirtualPet(userinput, "Dog"));//add more cute words
+                            System.out.println("Awww, you're going to live ever happily ever together!");
 
 
                             break;

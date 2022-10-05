@@ -38,7 +38,6 @@ public class VirtualPetShelter {
     }
 
     public void waterAll() {
-
         for (VirtualPet virtualPet : this.petList.values()) {
             virtualPet.water();
         }
@@ -54,7 +53,6 @@ public class VirtualPetShelter {
         for (VirtualPet virtualPet : this.petList.values()) {
             virtualPet.sleep();
         }
-
     }
 
     public void tick() {

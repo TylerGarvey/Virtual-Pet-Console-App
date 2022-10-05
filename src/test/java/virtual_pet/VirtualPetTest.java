@@ -1,53 +1,54 @@
-//package virtual_pet;
-//
-//import org.junit.jupiter.api.Test;
-//import static org.junit.jupiter.api.Assertions.assertEquals;
-//
-//
-//public class VirtualPetTest {
-//
-//    @Test
-//    public void feedShouldDecreaseHungerByTen() {
-//        Dog dog = new Dog("rigs", 0, 0, 0, 0);
-//        int before = dog.getHunger();
-//        dog.feed();
-//        int after = dog.getHunger();
-//        assertEquals(after, before - 10);
-//
-//    }
-//    @Test
-//    public void feedShouldIncreaseThirstByTen() {
-//        Dog dog = new Dog("rigs", 0, 0, 0, 0);
-//        int before = dog.getThirst();
-//        dog.feed();
-//        int after = dog.getThirst();
-//        assertEquals(after, before + 10);
-//    }
-//    @Test
-//    public void waterShouldDecreaseThirstByTwenty() {
-//        Dog dog = new Dog();
-//        int before = dog.getThirst();
-//        dog.water();
-//        int after = dog.getThirst();
-//        assertEquals(after, before -20);
-//    }
-//    @Test
-//    public void playShouldDecreaseBoredomByTwenty(){
-//        Dog dog = new Dog();
-//        int before = dog.getBoredom();
-//        dog.play();
-//        int after = dog.getBoredom();
-//        assertEquals(after, before -20);
-//    }
-//    @Test
-//    public void sleepShouldIncreaseEnergyByTwentyFive(){
-//        Dog dog = new Dog();
-//        int before = dog.getEnergy();
-//        dog.sleep();
-//        int after = dog.getEnergy();
-//        assertEquals(after, before +25);
-//
-//    }
-//
-//
-//}
+package virtual_pet;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
+public class VirtualPetTest {
+
+    @Test
+    public void feedShouldDecreaseHungerByTen() {
+        VirtualPet virtualPet = new VirtualPet();
+        int before = virtualPet.getHunger();
+        virtualPet.feed();
+        int after = virtualPet.getHunger();
+        assertEquals(after, before - 10);
+
+    }
+    @Test
+    public void feedShouldIncreaseThirstByTen() {
+        VirtualPet virtualPet = new VirtualPet();
+        int before = virtualPet.getThirst();
+        virtualPet.feed();
+        int after = virtualPet.getThirst();
+        assertEquals(after, before + 10);
+    }
+    @Test
+    public void waterShouldDecreaseThirstByTwenty() {
+        VirtualPet virtualPet = new VirtualPet();
+        int before = virtualPet.getThirst();
+        virtualPet.water();
+        int after = virtualPet.getThirst();
+        assertEquals(after, before -20);
+    }
+    @Test
+    public void playShouldDecreaseBoredomByTwenty(){
+        VirtualPet virtualPet = new VirtualPet();
+        int before = virtualPet.getBoredom();
+        virtualPet.play();
+        int after = virtualPet.getBoredom();
+        assertEquals(after, before -20);
+    }
+    @Test
+    public void sleepShouldIncreaseEnergyByTwentyFive(){
+        VirtualPet virtualPet = new VirtualPet();
+        int before = virtualPet.getEnergy();
+        virtualPet.sleep();
+        int after = virtualPet.getEnergy();
+        assertEquals(after, before +25);
+
+    }
+
+
+
+}
