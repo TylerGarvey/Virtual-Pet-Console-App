@@ -1,6 +1,6 @@
 package virtual_pet;
 
-public class RoboPet extends VirtualPet implements Sleepable{
+public class RoboPet extends VirtualPet{
     public int getOilLevel() {
         return oilLevel;
     }
@@ -17,44 +17,50 @@ public class RoboPet extends VirtualPet implements Sleepable{
         this.rustLevel = rustLevel;
     }
 
-    public int getBatteryLevel() {
-        return batteryLevel;
+
+    public int getEnergyLevel() {
+        return energyLevel;
     }
 
-    public void setBatteryLevel(int batteryLevel) {
-        this.batteryLevel = batteryLevel;
+    public void setEnergyLevel(int energyLevel) {
+        this.energyLevel = energyLevel;
     }
 
     protected int oilLevel;
     protected int rustLevel;
-    protected int batteryLevel;
+    protected int energyLevel;
 
 
     public RoboPet(){
         this.oilLevel = 75;
         this.rustLevel = 10;
-        this.batteryLevel =75;
+        this.energyLevel =95;
+        this.isOrganic = false;
 
 
     }
 
-    public RoboPet(String name, int boredom, int batteryLevel, int oilLevel, int rustLevel) {
+    public RoboPet(String name, int boredom, int energyLevel, int oilLevel, int rustLevel) {
 
 
     }
-
-    // TODO: make oilable/serviceable interface
-    public void changeOil () {
-        this.oilLevel = 90;
-        this.rustLevel = 0;
+    @Override
+    public void tick(){
+        this.oilLevel -= 5;
+        this.rustLevel += 5;
+        this.boredom += 5;
     }
 
     @Override
-    public void sleep(){
-        this.batteryLevel +=15;
+    public void changeOil () {
+        this.oilLevel = 100;
+        this.rustLevel = 0;
     }
 
+
+
 }
+
 
 
 

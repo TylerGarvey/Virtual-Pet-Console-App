@@ -4,14 +4,17 @@ public class Dog extends OrganicPet implements Walkable, Cleanable{
      public int cageSoilLevel;
      public double cageSoilRate;
 
-     public Dog (String name){
+     public Dog (String name, String animalType){
           this.name = name;
+          this.animalType = animalType;
+          this.isOrganic = true;
+          this.hunger = 50;
+          this.thirst = 50;
+          this.boredom = getBoredom();
+          this.energy = 95;
           this.cageSoilLevel = 0;
           this.cageSoilRate = 0.5;
      }
-
-//     this.animalType = "OrganicDog";
-
      @Override
      public void walk(){
           this.boredom -= 15;
@@ -21,8 +24,7 @@ public class Dog extends OrganicPet implements Walkable, Cleanable{
      }
 
      @Override
-     public void play() {
-          super.play();
+     public void feed() {
           this.cageSoilLevel += 10 + (10 * this.cageSoilRate);
      }
 
@@ -30,4 +32,5 @@ public class Dog extends OrganicPet implements Walkable, Cleanable{
      public void clean() {
           this.cageSoilLevel = 0;
      }
+
 }

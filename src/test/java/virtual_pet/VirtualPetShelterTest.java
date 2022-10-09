@@ -16,13 +16,13 @@ public class VirtualPetShelterTest {
     @Test
     public void sleepAllShouldIncreaseOrganicPetEnergyByTwentyFive(){
         VirtualPetShelter vps = new VirtualPetShelter();
-        Dog dog = new Dog("Spock");
-        Cat cat = new Cat("Scottie");
+        Dog dog = new Dog("Spock", "dog");
+        Cat cat = new Cat("Scottie", "cat");
 
         int dogEnergy = dog.getEnergy();
         int catEnergy = cat.getEnergy();
 
-        vps.takeInPet(dog);
+        vps.takeInPet(dog.name, dog.animalType);
         vps.takeInPet(cat);
 
         vps.sleepAll();
@@ -34,23 +34,23 @@ public class VirtualPetShelterTest {
 
     @Test
     public void adoptOutShouldRemoveVirtualPet(){
-    VirtualPetShelter vps = new VirtualPetShelter();
-    Dog dog = new Dog("Kirk");
+        VirtualPetShelter vps = new VirtualPetShelter();
+        Dog dog = new Dog("Kirk", "dog");
 
-    vps.takeInPet(dog);
-    int sizeBefore = vps.getPetList().size();
-    vps.adoptOut("Kirk");
-    int sizeAfter = vps.getPetList().size();
+        vps.takeInPet(dog.name, dog.animalType);
+        int sizeBefore = vps.getPetList().size();
+        vps.adoptOut("Kirk");
+        int sizeAfter = vps.getPetList().size();
 
-    assertEquals(1, sizeBefore);
-    assertEquals(0,sizeAfter);
+        assertEquals(1, sizeBefore);
+        assertEquals(0,sizeAfter);
     }
     @Test
     public void takeInPetShouldAddPet(){
-    VirtualPetShelter vps = new VirtualPetShelter();
-        Dog dog = new Dog("Kirk");
+        VirtualPetShelter vps = new VirtualPetShelter();
+        Dog dog = new Dog("Kirk"); // line 38
 
-        vps.takeInPet(dog);
+        vps.takeInPet(dog); // line 40
         int sizeBefore = vps.getPetList().size();
         vps.adoptOut("Kirk");
         int sizeAfter = vps.getPetList().size();

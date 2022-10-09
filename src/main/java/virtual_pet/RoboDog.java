@@ -1,18 +1,20 @@
 package virtual_pet;
 
-public class RoboDog extends RoboPet implements Walkable{
+public class RoboDog extends RoboPet implements Walkable, Oilable{
 
     public RoboDog() { }
-    public RoboDog(String name, String animalType, int boredom, int batteryLevel, int oilLevel, int rustLevel ){
-        super(name, boredom, batteryLevel, oilLevel, rustLevel);
+    public RoboDog(String name, String animalType) {
+        this.name = name;
+        this.animalType = animalType;
+        this.isOrganic = false;
     }
 
     @Override
     public void walk(){
-            this.oilLevel -= 15;
-            this.rustLevel += 10;
-            this.batteryLevel -= 15;
-            this.boredom -= 10;
+        this.oilLevel -= 15;
+        this.rustLevel += 10;
+        this.energyLevel -= 10;
+        this.boredom -= 10;
     }
 
 }

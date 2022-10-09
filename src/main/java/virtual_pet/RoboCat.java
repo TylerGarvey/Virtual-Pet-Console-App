@@ -1,10 +1,9 @@
 package virtual_pet;
 
-public class RoboCat extends RoboPet {
-
-
-    public RoboCat (){
-
+public class RoboCat extends RoboPet implements Oilable {
+    public RoboCat (String name, String animalType){
+        this.name = name;
+        this.animalType = animalType;
     }
 
     @Override

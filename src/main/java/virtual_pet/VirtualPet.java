@@ -6,6 +6,8 @@ public class VirtualPet{
     protected int boredom;
     protected int energy;
 
+    protected Boolean isOrganic;
+
     public int getHunger() {
         return hunger;
     }
@@ -26,13 +28,22 @@ public class VirtualPet{
     protected int thirst;
 
 
+    public Boolean getOrganic() {
+        return isOrganic;
+    }
 
+    public void setOrganic(Boolean organic) {
+        isOrganic = organic;
+    }
 
-     public VirtualPet(String name, String animalType) {
-         this.name = name;
-         this.animalType = animalType;
-         this.boredom= 50;
-     }
+    public VirtualPet(String name, Boolean isOrganic, String animalType,int boredom) {
+        this.name = name;
+        this.animalType = animalType;
+        this.isOrganic = false;
+        this.boredom= 50;
+        this.energy = 95;
+
+    }
     public VirtualPet() {
     }
 
@@ -42,7 +53,6 @@ public class VirtualPet{
         return name;
     }
     public String getAnimalType() {return animalType;}
-
     public int getBoredom() {
         return boredom;
     }
@@ -50,22 +60,17 @@ public class VirtualPet{
 
 
 
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setAnimalType(String animalType) {this.animalType = animalType;}
-    public void setBoredom(int boredom) {
-        this.boredom = boredom;
-    }
 
 
-public void feed(){
-         this.hunger -= 10;
-         this.thirst += 5;
-}
-public void water(){
-         this.thirst -= 15;
-}
+
+    public void feed(){
+        this.hunger -= 10;
+        this.thirst += 5;
+    }
+    public void water(){
+
+        this.thirst -= 15;
+    }
 
     public void play() {
         this.boredom -=20;
@@ -87,11 +92,18 @@ public void water(){
 
     public void tick(){
         this.boredom += 5;
-//        this.hunger +=5;
-//        this.thirst +=5;
 
     }
+    public void changeOil(){
+    }
 
+    public void walk(){
+    }
+    public void clean (){
 
+    }
+    public void getStatus(){
+
+    }
 }
 

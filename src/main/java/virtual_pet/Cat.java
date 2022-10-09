@@ -1,11 +1,15 @@
 package virtual_pet;
 
 public class Cat extends OrganicPet implements Cleanable{
+    public Cat(String name, String animalType) {
+        this.name = name;
+        this.animalType = animalType;
+    }
+
     public int litterBoxLevel;
 
-    public Cat(String name){
-        this.name = name;
-    }
+
+
 
     @Override
     public void clean() {
@@ -17,4 +21,10 @@ public class Cat extends OrganicPet implements Cleanable{
         super.play();
         this.litterBoxLevel += 10;
     }
+    @Override
+    public void tick(){
+        this.litterBoxLevel += 5;
+    }
+
+
 }
