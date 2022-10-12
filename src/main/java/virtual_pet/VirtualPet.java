@@ -1,12 +1,24 @@
 package virtual_pet;
 
-public class VirtualPet{
+public class VirtualPet {
+    private final int ENERGY_LEVEL = 80;
     protected String name;
     protected String animalType;
-    protected int boredom;
-    protected int energy;
+    protected int boredom = 50;
+    protected int hunger;
+    protected int thirst;
+    int energyLevel = ENERGY_LEVEL;
 
-    protected Boolean isOrganic;
+    public VirtualPet(String name, String animalType, int energyLevel, int boredom) {
+        this.name = name;
+        this.animalType = animalType;
+        this.energyLevel = energyLevel;
+        this.boredom = boredom;
+    }
+
+    public int getEnergyLevel() {
+        return energyLevel;
+    }
 
     public int getHunger() {
         return hunger;
@@ -24,86 +36,44 @@ public class VirtualPet{
         this.thirst = thirst;
     }
 
-    protected int hunger;
-    protected int thirst;
-
-
-    public Boolean getOrganic() {
-        return isOrganic;
-    }
-
-    public void setOrganic(Boolean organic) {
-        isOrganic = organic;
-    }
-
-    public VirtualPet(String name, Boolean isOrganic, String animalType,int boredom) {
-        this.name = name;
-        this.animalType = animalType;
-        this.isOrganic = false;
-        this.boredom= 50;
-        this.energy = 95;
-
-    }
-    public VirtualPet() {
-    }
-
-
-
     public String getName() {
         return name;
     }
-    public String getAnimalType() {return animalType;}
+
+    public String getAnimalType() {
+        return animalType;
+    }
+
     public int getBoredom() {
         return boredom;
     }
 
 
-
-
-
-
-
-    public void feed(){
+    public void feed() {
         this.hunger -= 10;
         this.thirst += 5;
     }
-    public void water(){
 
+    public void water() {
         this.thirst -= 15;
     }
 
     public void play() {
-        this.boredom -=20;
-        this.energy -= 10;
-    }
-
-    public int getEnergy() {
-        return energy;
-    }
-
-    public void setEnergy(int energy) {
-        this.energy = energy;
+        this.boredom -= 20;
+        this.hunger += 10;
+        this.thirst += 10;
     }
 
     public void sleep() {
-        this.energy += 25;
+        this.energyLevel += 25;
+        this.boredom -= 10;
+
     }
 
-
-    public void tick(){
+    public void tick() {
         this.boredom += 5;
-
-    }
-    public void changeOil(){
     }
 
-    public void walk(){
-    }
-    public void clean (){
 
-    }
-    public void getStatus(){
-
-    }
 }
 

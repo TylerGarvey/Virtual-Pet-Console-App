@@ -14,50 +14,59 @@ public class VirtualPetShelterTest {
 
 
     @Test
-    public void sleepAllShouldIncreaseOrganicPetEnergyByTwentyFive(){
+    public void sleepAllShouldDecreasePetBoredomByTen(){
         VirtualPetShelter vps = new VirtualPetShelter();
-        Dog dog = new Dog("Spock", "dog");
-        Cat cat = new Cat("Scottie", "cat");
+        Dog dog = new Dog("Spock", "dog", 50, 0, 40, 20);
+        Cat cat = new Cat("Scottie", "cat", 50, 20, 40, 20);
 
-        int dogEnergy = dog.getEnergy();
-        int catEnergy = cat.getEnergy();
+        int dogBoredom = dog.getBoredom();
+        int catBoredom = cat.getBoredom();
 
         vps.takeInPet(dog.name, dog.animalType);
-        vps.takeInPet(cat);
+        vps.takeInPet(cat.name, cat.animalType);
 
         vps.sleepAll();
 
-        assertEquals(dogEnergy + 25, dog.getEnergy());
+        assertEquals(dogBoredom - 10, dog.getBoredom());
 
-        assertEquals(catEnergy + 25, cat.getEnergy());
+        assertEquals(catBoredom - 10, cat.getBoredom());
     }
 
     @Test
-    public void adoptOutShouldRemoveVirtualPet(){
+    public void playAllShouldDecreaseBoredomBy20(){
         VirtualPetShelter vps = new VirtualPetShelter();
-        Dog dog = new Dog("Kirk", "dog");
+        Dog dog = new Dog("Spock", "dog", 50, 0, 40, 20);
+        Cat cat = new Cat("Scottie", "cat", 20,15, 0,20);
+
+        int dogBoredom = dog.getBoredom();
+        int catBoredom = cat.getBoredom();
 
         vps.takeInPet(dog.name, dog.animalType);
-        int sizeBefore = vps.getPetList().size();
-        vps.adoptOut("Kirk");
-        int sizeAfter = vps.getPetList().size();
+        vps.takeInPet(cat.name, cat.animalType);
 
-        assertEquals(1, sizeBefore);
-        assertEquals(0,sizeAfter);
+        vps.playAll();
+
+        assertEquals(dogBoredom - 20, dog.getBoredom());
+
+        assertEquals(catBoredom - 20, cat.getBoredom());
     }
     @Test
-    public void takeInPetShouldAddPet(){
+    public void waterAllShouldDecreaseThirstBy15(){
         VirtualPetShelter vps = new VirtualPetShelter();
-        Dog dog = new Dog("Kirk"); // line 38
+        Dog dog = new Dog("Spock", "dog", 20, 15, 40, 0);
+        Cat cat = new Cat("Scottie", "dog", 20,15, 40,0);
 
-        vps.takeInPet(dog); // line 40
-        int sizeBefore = vps.getPetList().size();
-        vps.adoptOut("Kirk");
-        int sizeAfter = vps.getPetList().size();
+        int dogThirst = dog.getThirst();
+        int catThirst = cat.getThirst();
 
-        assertEquals(1, sizeBefore);
-        assertEquals(0,sizeAfter);
+        vps.takeInPet(dog.name, dog.animalType);
+        vps.takeInPet(cat.name, cat.animalType);
 
+        vps.waterAll();
+
+        assertEquals(dogThirst -15, dog.getThirst());
+
+        assertEquals(catThirst -15, cat.getThirst());
     }
 
 

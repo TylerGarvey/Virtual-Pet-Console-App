@@ -1,14 +1,45 @@
 package virtual_pet;
 
-public class OrganicPet extends VirtualPet implements Sleepable {
-    protected int hunger;
-    protected int thirst;
+public class OrganicPet extends VirtualPet {
 
-    //    protected int energy;
-    public OrganicPet() {
-        super();
-        this.hunger = 25;
-        this.thirst = 25;
+    protected int hunger = 25;
+    protected int thirst = 25;
+
+
+    VirtualPet virtualPet = new VirtualPet(name, animalType, energyLevel, boredom);
+
+    public OrganicPet(String name, String animalType, int energyLevel, int hunger, int thirst, int boredom ) {
+        super(name, animalType,energyLevel, boredom);
+        this.hunger = hunger;
+        this.thirst = thirst;
+    }
+
+    public VirtualPet getVirtualPet() {
+        return virtualPet;
+    }
+
+    public void setVirtualPet(VirtualPet virtualPet) {
+        this.virtualPet = virtualPet;
+    }
+
+    @Override
+    public int getHunger() {
+        return hunger;
+    }
+
+    @Override
+    public void setHunger(int hunger) {
+        this.hunger = hunger;
+    }
+
+    @Override
+    public int getThirst() {
+        return thirst;
+    }
+
+    @Override
+    public void setThirst(int thirst) {
+        this.thirst = thirst;
     }
 
     public void feed() {
@@ -21,11 +52,6 @@ public class OrganicPet extends VirtualPet implements Sleepable {
         this.hunger -= 5;
     }
 
-    @Override
-    public void sleep() {
-        this.boredom -= 15;
-        this.energy += 25;
-    }
 
 }
 

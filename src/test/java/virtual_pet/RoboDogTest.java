@@ -7,15 +7,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class RoboDogTest {
 
     @Test
-    void changeOilSetsLevelToNinety() {
-        RoboDog robodog = new RoboDog();
+    void changeOilSetsLevelToNinetyAHundred() {
+        RoboDog robodog = new RoboDog("Data", "robodog",20, 20, 20, 20);
 
-        robodog.walk();
-        int oilBefore = robodog.getOilLevel();
+        int oilBefore = 20;
         robodog.changeOil();
         int oilAfter = robodog.getOilLevel();
 
-        assertEquals(90,oilAfter);
-        assertEquals(60, oilBefore);
+        assertEquals(100,oilAfter);
+        assertEquals(20, oilBefore);
     }
 }

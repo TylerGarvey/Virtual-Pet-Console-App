@@ -1,15 +1,14 @@
 package virtual_pet;
 
 public class RoboCat extends RoboPet implements Oilable {
-    public RoboCat (String name, String animalType){
-        this.name = name;
-        this.animalType = animalType;
+    public RoboCat (String name, String animalType, int boredom, int energyLevel, int oilLevel, int rustLevel) {
+        super(name, animalType, boredom, energyLevel, oilLevel, rustLevel);
     }
 
     @Override
     public void play() {
         super.play();
-        this.oilLevel -= 15;
-        this.rustLevel += 10;
+        this.oilLevel -= 10;
+        this.rustLevel += 5;
     }
 }

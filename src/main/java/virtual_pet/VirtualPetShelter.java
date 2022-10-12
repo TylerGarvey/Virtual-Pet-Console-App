@@ -12,10 +12,10 @@ public class VirtualPetShelter {
 
     public VirtualPetShelter() {
         this.petList = new HashMap<>();
-        petList.put("Rigs", new Dog("Rigs", "dog"));
-        petList.put("Zelda", new RoboDog("Zelda", "robodog"));
-        petList.put("Lana", new Cat("Lana", "cat"));
-        petList.put("LeBron", new RoboCat("Lebron", "robocat"));
+        petList.put("Rigs", new Dog("Rigs", "dog", 50, 0, 40, 20));
+        petList.put("Zelda", new RoboDog("Zelda", "robodog", 50, 50, 50, 50));
+        petList.put("Lana", new Cat("Lana", "cat", 50, 20, 40, 20));
+        petList.put("LeBron", new RoboCat("Lebron", "robocat", 50, 40, 20, 50));
     }
 
     public HashMap<String, VirtualPet> getPetList() {
@@ -24,13 +24,13 @@ public class VirtualPetShelter {
 
     public void takeInPet(String newPetName, String newPetType) {
         if( newPetType.equalsIgnoreCase("robodog")) {
-            petList.put(newPetName, new RoboDog(newPetName, newPetType));
+            petList.put(newPetName, new RoboDog(newPetName, newPetType, 50, 40, 20,60));
         } else if (newPetType.equalsIgnoreCase("dog")) {
-            petList.put(newPetName, new Dog(newPetName, newPetType));
+            petList.put(newPetName, new Dog(newPetName, newPetType, 50 , 30,20, 0));
         } else if  (newPetType.equalsIgnoreCase("cat")){
-            petList.put(newPetName, new Cat(newPetName, newPetType));
+            petList.put(newPetName, new Cat(newPetName, newPetType, 50, 20, 20, 30));
         } else if (newPetType.equalsIgnoreCase("robocat")) {
-            petList.put(newPetName, new RoboCat(newPetName, newPetType));
+            petList.put(newPetName, new RoboCat(newPetName, newPetType, 50, 20, 40 ,30));
         }
     }
 
@@ -64,22 +64,30 @@ public class VirtualPetShelter {
 
     public void changeAllRoboOil() {
         for (VirtualPet virtualPet : this.petList.values()) {
-            virtualPet.changeOil();
+//            virtualPet.changeOil();
         }
     }
 
     public void walkAllDogs() {
         for (VirtualPet virtualPet : this.petList.values()) {
-            virtualPet.walk();
+            if( virtualPet instanceof Dog || virtualPet instanceof RoboDog) {
+                Dog.takeAHike();
+            }
         }
     }
 
     public void cleanCagesAndBoxes() {
         for (VirtualPet virtualPet : this.petList.values()) {
-            virtualPet.clean();
+            if (virtualPet instanceof Dog ) {
+                Dog.clean();
+                Dog.displayWasteLevel();
+//                else (virtualPet instanceof Cat){
+//                    Cat.clean();
+                }
+            }
         }
     }
-}
+
 //    public void getOrganicStatuses(){
 //        for (VirtualPet virtualPet : this.petList.values()) {
 //            System.out.println(entry.getKey() + "\n" + entry.getValue().getAnimalType() + "\n hunger" + entry.getValue().getHunger() + "\n thirst" + entry.getValue().getThirst() + "\n boredom");

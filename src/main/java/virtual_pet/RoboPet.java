@@ -1,6 +1,17 @@
 package virtual_pet;
 
-public class RoboPet extends VirtualPet{
+public class RoboPet extends VirtualPet {
+
+    VirtualPet virtualPet = new VirtualPet(name, animalType, energyLevel, boredom);
+    protected int oilLevel;
+    protected int rustLevel;
+
+    public RoboPet(String name, String animalType, int boredom, int energyLevel, int oilLevel, int rustLevel) {
+        super(name, animalType, energyLevel, boredom);
+        this.rustLevel = rustLevel;
+        this.oilLevel = oilLevel;
+    }
+
     public int getOilLevel() {
         return oilLevel;
     }
@@ -17,7 +28,6 @@ public class RoboPet extends VirtualPet{
         this.rustLevel = rustLevel;
     }
 
-
     public int getEnergyLevel() {
         return energyLevel;
     }
@@ -26,37 +36,17 @@ public class RoboPet extends VirtualPet{
         this.energyLevel = energyLevel;
     }
 
-    protected int oilLevel;
-    protected int rustLevel;
-    protected int energyLevel;
-
-
-    public RoboPet(){
-        this.oilLevel = 75;
-        this.rustLevel = 10;
-        this.energyLevel =95;
-        this.isOrganic = false;
-
-
-    }
-
-    public RoboPet(String name, int boredom, int energyLevel, int oilLevel, int rustLevel) {
-
-
-    }
     @Override
-    public void tick(){
+    public void tick() {
         this.oilLevel -= 5;
         this.rustLevel += 5;
         this.boredom += 5;
     }
 
-    @Override
-    public void changeOil () {
+    public void changeOil() {
         this.oilLevel = 100;
         this.rustLevel = 0;
     }
-
 
 
 }

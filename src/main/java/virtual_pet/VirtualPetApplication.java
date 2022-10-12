@@ -38,13 +38,13 @@ public class VirtualPetApplication {
                     String newPetName = input.next();
                     System.out.println("Is your animal type: dog, cat, robodog, or robocat? \n please enter animal type: ");
                     String newPetType = input.next();
-                    System.out.println();
+                    System.out.println("We'll treat them as our own!");
                     vps.takeInPet(newPetName, newPetType);
                     break;
                 case "3":
                     System.out.println("That's very kind of you! What would you like to do to help the animals?");
-                    System.out.println("Press 1 to feed all of the ORGANIC animals");
-                    System.out.println("Press 2 to give all of the ORGANIC animals water");
+                    System.out.println("Press 1 to feed all of the animals");
+                    System.out.println("Press 2 to give all of the animals water");
                     System.out.println("Press 3 to play with all of the animals");
                     System.out.println("Press 4 to tuck the animals in for nap time");
                     System.out.println("Press 5 to tend to one animal");
@@ -58,10 +58,8 @@ public class VirtualPetApplication {
                     switch (volunteer) {
                         case "1":
                             for (VirtualPet virtualPet : vps.getPetList().values()) {
-                                if (virtualPet.isOrganic) {
                                     virtualPet.feed();
                                 }
-                            }
                             break;
                         case "2":
                             vps.waterAll();// change to match case 1
@@ -81,7 +79,7 @@ public class VirtualPetApplication {
                             vps.sleepAll();
                             System.out.println("You have tucked in all of the animals!");
                             for (VirtualPet virtualPet : vps.getPetList().values()) {
-                                System.out.println(virtualPet.getName() + " has an energy level of " + virtualPet.getEnergy());
+                                System.out.println(virtualPet.getName() + " has an energy level of " + virtualPet.getEnergyLevel());
                             }
                             break;
                         case "5":
@@ -140,7 +138,7 @@ public class VirtualPetApplication {
                             break;
                         case "9":
                             for (Map.Entry<String, VirtualPet> entry : vps.getPetList().entrySet()) {
-                                System.out.println(entry.getKey() + "\nThirst: " + entry.getValue().getThirst() + "\nHunger: " + entry.getValue().getHunger() + "\nBoredom: " + entry.getValue().getBoredom() + "\nEnergy" + entry.getValue().getEnergy());
+                                System.out.println(entry.getKey() + "\nThirst: " + entry.getValue().getThirst() + "\nHunger: " + entry.getValue().getHunger() + "\nBoredom: " + entry.getValue().getBoredom() + "\nEnergy" + entry.getValue().getEnergyLevel());
                             }
                             break;
                         case "0":
@@ -156,7 +154,7 @@ public class VirtualPetApplication {
     }
     public static void showStats(VirtualPetShelter vps) {
         for (VirtualPet virtualPet : vps.getPetList().values()) {
-            System.out.println("Name: " + virtualPet.getName() +  "| " + virtualPet.getAnimalType() + "\n  Energy: " + virtualPet.getEnergy() + "|| Hunger: " + virtualPet.getHunger());
+            System.out.println("Name: " + virtualPet.getName() +  "| " + virtualPet.getAnimalType() + "\n ||Energy: " + virtualPet.getEnergyLevel() + "|| Hunger: " + virtualPet.getHunger() + "||Thirst: " + virtualPet.getThirst() + "||Boredom: " + virtualPet.getBoredom());
         }
     }
 
