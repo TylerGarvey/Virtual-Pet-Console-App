@@ -1,6 +1,6 @@
 package virtual_pet;
 
-public class RoboPet extends VirtualPet {
+public class RoboPet extends VirtualPet implements Oilable {
 
     VirtualPet virtualPet = new VirtualPet(name, animalType, energyLevel, boredom);
     protected int oilLevel;

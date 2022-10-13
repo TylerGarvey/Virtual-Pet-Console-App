@@ -57,9 +57,10 @@ public class VirtualPetApplication {
                     String volunteer = input.next();
                     switch (volunteer) {
                         case "1":
+                            vps.feedAll();
                             for (VirtualPet virtualPet : vps.getPetList().values()) {
-                                    virtualPet.feed();
-                                }
+                                System.out.println(virtualPet.getName() + " has a hunger level of " + virtualPet.getHunger());
+                            }
                             break;
                         case "2":
                             vps.waterAll();// change to match case 1
@@ -137,9 +138,8 @@ public class VirtualPetApplication {
 
                             break;
                         case "9":
-                            for (Map.Entry<String, VirtualPet> entry : vps.getPetList().entrySet()) {
-                                System.out.println(entry.getKey() + "\nThirst: " + entry.getValue().getThirst() + "\nHunger: " + entry.getValue().getHunger() + "\nBoredom: " + entry.getValue().getBoredom() + "\nEnergy" + entry.getValue().getEnergyLevel());
-                            }
+                            showStats(vps);
+
                             break;
                         case "0":
                             gameRunning = false;
@@ -149,12 +149,26 @@ public class VirtualPetApplication {
                             break;
 
                     }
+                    break;
+                case "0":
+                    gameRunning = false;
+                    System.out.println("Virtual Pet Shelter Simulation Over \n Have a great day!");
+                    break;
             }
         }
     }
     public static void showStats(VirtualPetShelter vps) {
         for (VirtualPet virtualPet : vps.getPetList().values()) {
             System.out.println("Name: " + virtualPet.getName() +  "| " + virtualPet.getAnimalType() + "\n ||Energy: " + virtualPet.getEnergyLevel() + "|| Hunger: " + virtualPet.getHunger() + "||Thirst: " + virtualPet.getThirst() + "||Boredom: " + virtualPet.getBoredom());
+            if (virtualPet instanceof Oilable){
+                int oilLevel = ((Oilable) virtualPet).getOilLevel();
+                System.out.println(" ||Oil Level is :" + oilLevel) ;
+            }
+            if (virtualPet instanceof Cleanable){
+                int soilLevel = ((Cleanable) virtualPet).getSoilLevel();
+                System.out.println(" ||Soil Level is :" + soilLevel);
+            }
+
         }
     }
 

@@ -1,6 +1,6 @@
 package virtual_pet;
 
-public class RoboCat extends RoboPet implements Oilable {
+public class RoboCat extends RoboPet {
     public RoboCat (String name, String animalType, int boredom, int energyLevel, int oilLevel, int rustLevel) {
         super(name, animalType, boredom, energyLevel, oilLevel, rustLevel);
     }

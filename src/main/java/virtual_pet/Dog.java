@@ -1,6 +1,6 @@
 package virtual_pet;
 
-public class Dog extends OrganicPet implements Walkable {
+public class Dog extends OrganicPet implements Walkable, Cleanable {
 
     OrganicPet organicPet = new OrganicPet(name, animalType, energyLevel, hunger, thirst, boredom);
     protected static final double CAGE_SOIL_RATE = 0.5;
@@ -41,23 +41,22 @@ public class Dog extends OrganicPet implements Walkable {
         System.out.println("The pooper's at: " + cageSoilLevel);
     }
 
-    public static void takeAHike() {
-//        this.boredom -= 15;
-        if (cageSoilRate > 0.0) {
-            cageSoilRate = cageSoilRate - 0.1;
-        }
-        System.out.println("The pooper's at: " + cageSoilLevel);
-    }
+
     @Override
     public void feed() {
         cageSoilLevel += 10 + (10 * cageSoilRate);
     }
 
-    public static void clean() {
+    public void clean() {
         cageSoilLevel = 0;
     }
 
+    @Override
+    public int getSoilLevel() {
+        return this.cageSoilLevel;
+    }
+
     public static void displayWasteLevel() {
-        System.out.println("The shitters at: " + cageSoilLevel);
+        System.out.println("The pooper's at: " + cageSoilLevel);
     }
 }

@@ -16,14 +16,24 @@ public class VirtualPetShelterTest {
     @Test
     public void sleepAllShouldDecreasePetBoredomByTen(){
         VirtualPetShelter vps = new VirtualPetShelter();
-        Dog dog = new Dog("Spock", "dog", 50, 0, 40, 20);
-        Cat cat = new Cat("Scottie", "cat", 50, 20, 40, 20);
+
+        vps.takeInPet("Spock", "dog");
+        vps.takeInPet("Scottie", "cat");
+
+        Dog dog = null;
+        Cat cat = null;
+
+        for (VirtualPet virtualPet: vps.getPetList().values()){
+            if("Spock".equals(virtualPet.getName())) {
+                dog = (Dog) virtualPet;
+            }
+            if("Scottie".equals(virtualPet.getName())){
+                cat = (Cat) virtualPet;
+            }
+        }
 
         int dogBoredom = dog.getBoredom();
         int catBoredom = cat.getBoredom();
-
-        vps.takeInPet(dog.name, dog.animalType);
-        vps.takeInPet(cat.name, cat.animalType);
 
         vps.sleepAll();
 

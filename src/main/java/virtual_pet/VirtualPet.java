@@ -72,6 +72,8 @@ public class VirtualPet {
 
     public void tick() {
         this.boredom += 5;
+        this.hunger += 5;
+        this.thirst += 5;
     }
 
 

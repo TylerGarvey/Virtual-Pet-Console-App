@@ -1,6 +1,6 @@
 package virtual_pet;
 
-public class RoboDog extends RoboPet implements Walkable, Oilable{
+public class RoboDog extends RoboPet implements Walkable{
 
     public RoboDog(String name, String animalType,int boredom, int energyLevel, int oilLevel, int rustLevel) {
         super(name, animalType, boredom, energyLevel, oilLevel, rustLevel);
