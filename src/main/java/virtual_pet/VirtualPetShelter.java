@@ -28,7 +28,7 @@ public class VirtualPetShelter {
         } else if (newPetType.equalsIgnoreCase("dog")) {
             petList.put(newPetName, new Dog(newPetName, newPetType, 50, 30, 20, 20));
         } else if (newPetType.equalsIgnoreCase("cat")) {
-            petList.put(newPetName, new Cat(newPetName, newPetType, 50, 20, 20, 20));
+            petList.put(newPetName, new Cat(newPetName, newPetType, 50, 30, 20, 20));
         } else if (newPetType.equalsIgnoreCase("robocat")) {
             petList.put(newPetName, new RoboCat(newPetName, newPetType, 20, 20, 40, 30));
         }
